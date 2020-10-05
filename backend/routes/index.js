@@ -2,7 +2,11 @@ var express = require('express');
 var router = express.Router();
 var axios = require('axios');
 var validacep = /^[0-9]{8}$/;
+const {access} = require('../model');
 
+// var HandleDBMSMySQL = require('../config/database/HandleDBMSMySQL');
+
+// this._HandleDBMSMySQL = new HandleDBMSMySQL();
 /* GET home page. */
 router.get('/:cep', function(req, res, next) {
 
@@ -11,7 +15,8 @@ const cep = req.params.cep;
 if(validacep.test(cep)) {
 
 axios.get('https://viacep.com.br/ws/'+cep+'/json/')
-  .then(function(response){
+  .then(async function(response){
+    await access.create(response.data);
     res.send(response.data);
   })
   .catch(function (error) {
