@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rei do cangaço</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/login.css" />
+</head>
+
+<body>
+  <div class="log-form">
+    <h2>Rei do cangaço</h2>
+    <form onsubmit="return validar_login(event)" id="formuser">
+      <input type="email" title="email" placeholder="email" name="email" id="email"/>
+      <input type="password" title="senha" placeholder="senha" name="pass" id="senha"/>
+      <button type="submit" class="btn" login()>Acessar</button>
+      <a class="forgot" href="#">Esqueceu seus dados?</a>
+    </form>
+  </div>
+
+  <footer class="footer--layout">
+    <div class="center footer">
+      <p>2020 &copy; Rei do Cangaço</p>
+    </div>
+  </footer>
+
+  <script src="js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rei do cangaço</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="Css/main.css"/>
+</head>
+
+<body>
+<div class="limiter">
+<div class="container">
+<div class="centralizado">
+
+<div class="log-form">
+<h2>Cadastro de Fonercedores</h2>
+</div>
+<section class="bloco_central">
+<div class="container-form-btn">
+    <div class="bloco-pic js-tilt">
+      <img src="Imagem/cacto.png" alt="IMG">
+      </div>
+<div class="menu">
+  <div class="title" onclick="f(1)">Cadastrar <span class="fa fa-bars"></span>
+    <div class="arrow"></div>
+  </div>
+  <div class="title" onclick="f(2)">Visualizar <span class="fa fa-bars"></span>
+    <div class="arrow"></div>
+  </div>
+  <div class="title" onclick="f(3)">Atualizar <span class="fa fa-bars"></span>
+    <div class="arrow"></div>
+  </div>
+  <div class="title" onclick="f(4)">Deletar <span class="fa fa-bars"></span>
+    <div class="arrow"></div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="bloco_central">
+  <div class="dropdown">
+    <div class="log-form">
+    <label>Código:
+      <input name="codigo" type="text" id="cd_fornecedor" value="" size="10" maxlength="9" placeholder="Código"/></label><br />
+    <label>Cnpj ou CPF:
+      <input name="cnpj" type="text" id="cnpj_cpf" size="60" placeholder="Cnpj ou CPF"/></label><br />
+    <label>Nome fantasma:
+      <input name="nome" type="text" id="nm_fantasia" size="40" placeholder="Nome fantasia"/></label><br />
+    <label>Email:
+      <input name="nome" type="text" id="email" size="40" placeholder="Nome fantasma"/></label><br />
+     <label>CEP:
+      <input name="nome" type="text" id="cep" size="40" placeholder="Nome fantasma"/></label><br />
+    <label>Estado:
+      <input name="nome" type="text" id="estado" size="40" placeholder="Nome fantasma"/></label><br />
+    <label>Contato:
+      <input name="nome" type="text" id="contato" size="40" placeholder="Nome fantasma"/></label><br />
+      <label>Sn Ativo:
+        <input name="ativo" type="text" id="sn_ativo" size="2" placeholder="Status"/></label><br />
+      <div class="topo">
+        <button type="submit" class="btn" onclick="chamaFuncao()">Enviar</button>
+        <button type="submit" class="btn" onclick="LimparTela()">Limpar</button>
+      </div>
+    </div>    
+  </div>
+</section>
+</div>
+</div>
+</div>
+
+<script src="Js/fornecedor.js"></script>
+</body>

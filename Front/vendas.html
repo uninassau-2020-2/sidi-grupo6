@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rei do cangaço</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="Css/main.css"/>
+  </head>
+
+  <body>
+    <div class="limiter">
+      <div class="container">
+        <div class="centralizado">
+          <div class="log-form">
+            <h2>Carrinho</h2>
+          </div>
+          <section class="bloco_central">
+            <div class="container-form-btn">
+              <div class="bloco-pic js-tilt">
+                <img src="Imagem/cacto.png" alt="IMG">
+              </div>
+                <div class="log-form">
+                    <div class="menu">
+                    <label>
+                      Id do Produto:
+                      <input name="produto" type="text" id="id_produto" value="" size="10" maxlength="9" placeholder="Id do Produto"/>
+                    </label>
+                    <br />
+                    <button type="pesquisar" class="btn" onclick="buscaProduto(id_produto.value)">Pesquisar</button>
+                </div>
+            </div>
+            <div class="log-form">
+                  <label>
+                    Quantidade:
+                    <input name="quantidade" type="text" id="quantidade" value="" size="10" maxlength="9" placeholder="Quantidade"/>
+                  </label>
+                  <br />
+                  <label>
+                    Nome:
+                    <input name="nome" type="text" id="nm_produto" size="60" placeholder="Nome"readonly />
+                  </label>
+                  <br />
+                  <label>
+                    Valor:
+                    <input name="valor" type="text" id="vl_produto" value="" size="10" maxlength="9" placeholder="Valor"/>
+                  </label>
+                  <br />
+                  <button type="adicionar" class="btn" onclick="f()">Adicionar</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="bloco_central">
+            <div class="dropdown">
+            <div class="log-form">
+              <p>Forma de pagamento:</p>
+              <label class="containe">
+                Dinheiro
+                <input type="radio" checked="checked" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="containe">
+                Cartão
+                <input type="radio" name="radio" />
+                <span class="checkmark"></span>
+              </label>
+              <label>
+                Desconto:
+                <input name="desconto" type="text" id="desconto" size="40" placeholder="Desconto"  />
+              </label>
+              <br />
+              <label>
+                Valor Total:
+                <input name="valortot" type="text" id="valor_total_final" value="" size="10" maxlength="9" placeholder="Valor Total" readonly/>
+              </label>
+              <br />
+              <button type="finalizar" class="btn" onclick="inserirPedido()">Finalizar</button>
+              <button type="finalizar" class="btn" onclick="LimparPedido()">Limpar</button>
+            </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="Js/vendas.js"></script>
+  </body>
+</html>

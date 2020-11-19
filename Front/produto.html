@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rei do cangaço</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="Css/main.css"/>
+</head>
+
+<body>
+<div class="limiter">
+<div class="container">
+<div class="centralizado">
+
+<div class="log-form">
+  <h2>Cadastro de Produtos</h2>
+</div>
+<section class="bloco_central">
+<div class="container-form-btn">
+    <div class="bloco-pic js-tilt">
+      <img src="Imagem/cacto.png" alt="IMG">
+      </div>
+<div class="menu">
+  <div class="title" onclick="f(1)">Cadastar <span class="fa fa-bars"></span>
+    <div class="arrow"></div>
+  </div>
+  <div class="title" onclick="f(2)">Visualizar <span class="fa fa-bars"></span>
+    <div class="arrow"></div>
+  </div>
+  <div class="title" onclick="f(3)">Atualizar <span class="fa fa-bars"></span>
+    <div class="arrow"></div>
+  </div>
+  <div class="title" onclick="f(4)">Deletar <span class="fa fa-bars"></span>
+    <div class="arrow"></div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="bloco_central">
+  <div class="dropdown">
+    <div class="log-form">
+    <label>ID:
+      <input name="id" type="text" id="id_produto" value="" size="10" maxlength="9" placeholder="Id"/></label><br />
+    <label>Código:
+      <input name="codigo" type="text" id="cd_produto" size="60" placeholder="Código"/></label><br />
+    <label>Valor:
+      <input name="valor" type="text" id="vl_produto" size="40" placeholder="Valor"/></label><br />
+    <label>Nome:
+      <input name="nome" type="text" id="nm_produto" size="40" placeholder="Nome"/></label><br />
+    <label>Categoria do Produto:
+        <input name="ativo" type="text" id="tp_produto" size="2" placeholder="Status"/></label><br />
+    <label>Status:
+      <input name="ativo" type="text" id="sn_ativo" size="2" placeholder="Status"/></label><br />
+      <button type="submit" class="btn" onclick="chamaFuncao()">Enviar</button>
+      <button type="submit" class="btn" onclick="LimparTela()">Limpar</button>
+    </div>    
+  </div>
+</section>
+</div>
+</div>
+</div>
+
+<script src="Js/produto.js"></script>
+</body>
