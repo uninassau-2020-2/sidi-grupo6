@@ -1,5 +1,6 @@
 package com.reiCangaco.Api.controller;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.reiCangaco.Api.model.Pedido;
 import com.reiCangaco.Api.repository.PedidoRepository;
+import com.reiCangaco.Api.service.ReportService;
+
+import net.sf.jasperreports.engine.JRException;
 
 @RestController
 @CrossOrigin("*")
@@ -23,6 +27,8 @@ public class PedidoController {
 	
 	@Autowired
 	PedidoRepository pedidoRepository;
+	@Autowired
+	private ReportService reportService;
 	
 	@GetMapping(value="/ListarPedido")
 	public List<Pedido> ListarPedido(){
@@ -50,6 +56,11 @@ public class PedidoController {
 	@DeleteMapping("/deletePedido")
 	public void DeletarPedido(@RequestBody Pedido pedido) {
 		pedidoRepository.delete(pedido);
+	}
+	
+	@GetMapping("/geraReport/{format}")
+	public String gerarReport(@PathVariable String format) throws FileNotFoundException, JRException{
+		return reportService.gerarReport(format);
 	}
 	
 

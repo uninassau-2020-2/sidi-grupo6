@@ -1,6 +1,7 @@
 package com.reiCangaco.Api.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.lang.Integer;
+import java.lang.Long;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,18 +31,14 @@ private static final long serialVersionUID = 1L;
     @Column(name = "cd_pedido")
 	private long cd_pedido; //identificador unico produto
 	
-	private long cd_produto;
+	private long id_produto;
 	
-	private double vl_pedido;
-	
-	@DateTimeFormat
-	private String dt_pedido;
-	
-	private String Status;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date dt_pedido;
 	
 	private double vl_desconto;
 	
-	private int quantidade;
+	private double quantidade;
 	
 	private String tp_pagamento;
 	
@@ -73,11 +72,11 @@ private static final long serialVersionUID = 1L;
 		this.vl_desconto = vl_desconto;
 	}
 
-	public int getQuantidade() {
+	public double getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(double quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -97,40 +96,20 @@ private static final long serialVersionUID = 1L;
 		this.cd_pedido = cd_pedido;
 	}
 
-	public long getCd_produto() {
-		return cd_produto;
+	public long getId_produto() {
+		return id_produto;
 	}
 
-	public void setCd_produto(long cd_produto) {
-		this.cd_produto = cd_produto;
+	public void setCd_produto(long id_produto) {
+		this.id_produto = id_produto;
 	}
 
-	public double getVl_pedido() {
-		return vl_pedido;
-	}
-
-	public void setVl_pedido(double vl_pedido) {
-		this.vl_pedido = vl_pedido;
-	}
-
-	public String getDt_pedido() {
+	public Date getDt_pedido() {
 		return dt_pedido;
 	}
 
-	public void setDt_pedido(String dt_pedido) {
+	public void setDt_pedido(Date dt_pedido) {
 		this.dt_pedido = dt_pedido;
-	}
-
-	public String getStatus() {
-		return Status;
-	}
-
-	public void setStatus(String status) {
-		Status = status;
-	}
-	
-	
-	
-	
+	}	
 
 }
