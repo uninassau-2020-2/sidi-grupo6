@@ -10,11 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+
 import java.lang.Integer;
 import java.lang.Long;
 
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -31,10 +31,8 @@ private static final long serialVersionUID = 1L;
     @Column(name = "cd_pedido")
 	private long cd_pedido; //identificador unico produto
 	
-	private long id_produto;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date dt_pedido;
+	private String dt_pedido;
 	
 	private double vl_desconto;
 	
@@ -47,6 +45,27 @@ private static final long serialVersionUID = 1L;
 	private double vl_total;
 	
 	
+	private long id_vendedor;
+	
+	
+	public String getDt_pedido() {
+		return dt_pedido;
+	}
+
+	public void setDt_pedido(String dt_pedido) {
+		
+		this.dt_pedido = dt_pedido;
+	}
+	
+	
+	public long getId_vendedor() {
+		return id_vendedor;
+	}
+
+	public void setId_vendedor(long id_vendedor) {
+		this.id_vendedor = id_vendedor;
+	}
+
 
 	public String getNm_produto() {
 		return nm_produto;
@@ -96,20 +115,6 @@ private static final long serialVersionUID = 1L;
 		this.cd_pedido = cd_pedido;
 	}
 
-	public long getId_produto() {
-		return id_produto;
-	}
-
-	public void setCd_produto(long id_produto) {
-		this.id_produto = id_produto;
-	}
-
-	public Date getDt_pedido() {
-		return dt_pedido;
-	}
-
-	public void setDt_pedido(Date dt_pedido) {
-		this.dt_pedido = dt_pedido;
-	}	
+	
 
 }

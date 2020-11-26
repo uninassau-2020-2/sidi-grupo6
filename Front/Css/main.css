@@ -96,7 +96,7 @@ span{
         border: none;
         border-bottom: 1px solid coral;
         padding-bottom: 1.25em;
-        color: #757575;
+        color: black;
       }
       .log-form input:focus {
         outline: none;
@@ -311,3 +311,32 @@ span{
   color: white;
 
 }
+
+.topleft {
+  position:absolute;
+  left:0;
+  width:500px;
+  height:500px;
+  top: 12%;
+  }
+
+  .adicionados{
+    border: solid 2px white;
+    background-color: rgb(255, 255, 255);
+    border-radius: 7px;
+}
+.rowtabela{
+    display: flex;
+}
+.item{
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+.botao{
+position: relative;
+bottom: 20px;
+right: 20px;
+
+}
+

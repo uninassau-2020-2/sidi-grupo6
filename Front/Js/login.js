@@ -26,7 +26,9 @@ function validar_login(event) {
   }
   
   function login(){
-  
+    localStorage.removeItem("@ReiCangaco/cd_vendedor")
+    localStorage.removeItem("@ReiCangaco/admin")
+    
     user = document.getElementById("email").value
     pass = document.getElementById("senha").value
 
@@ -34,14 +36,19 @@ function validar_login(event) {
     headers: { "Content-Type": "application/json; charset=UTF-8" },
     mode: 'cors',
     body: JSON.stringify({
-    username: user,
-    password: pass
+    login: user,
+    senha: pass
           }),
     cache: 'default' };     
     fetch('http://localhost:8080/api/login',myInit)
     .then(function(response) {
+      response.json().then(data => {
+      localStorage.setItem("@ReiCangaco/cd_vendedor",data.cd_vendedor); 
+      localStorage.setItem("@ReiCangaco/admin", data.sn_ativo);
+     });
       if(response.status == 200){
-      return window.location = "file:///C:/Users/Roberto/Desktop/REICANGACO/Front/menu.html";}
+      return window.location = "file:///C:/Users/Roberto/Desktop/REICANGACO/Front/menu.html";
+    }
       else{
       alert("Usuario não encontrado");  
       return  window.location = "file:///C:/Users/Roberto/Desktop/REICANGACO/Front/index.html";

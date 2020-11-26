@@ -147,7 +147,7 @@ function buscaProduto(idProduto) {
 			  .then(function(response) {
   			   return response.json().then(data => {
 
-  			   document.getElementById('id_produto').value=(data.id_produto);
+  			       document.getElementById('id_produto').value=(data.id_produto);
                document.getElementById('cd_produto').value=(data.cd_produto);
                document.getElementById('nm_produto').value=(data.nm_produto);
                document.getElementById('vl_produto').value=(data.vl_produto);

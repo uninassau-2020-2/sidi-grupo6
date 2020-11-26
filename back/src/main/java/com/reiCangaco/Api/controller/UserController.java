@@ -20,7 +20,7 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository; 
 	
-	@PostMapping("/login")
+	/*@PostMapping("/login")
 	public ResponseEntity<User> Login(@RequestBody User user) {
 		
 		if(userRepository.findByUsername(user.getUsername()) != null && userRepository.findByPassword(user.getPassword()) != null ) {
@@ -29,7 +29,7 @@ public class UserController {
 		return new ResponseEntity<User>( HttpStatus.UNAUTHORIZED);
 		
 		
-	}
+	}*/
 	
 	
 

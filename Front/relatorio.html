@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="Css/main.css"/>
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <title>Rei do cangaço</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"> -->
 </head>
 <body>
     <div class="limiter">
@@ -22,40 +19,19 @@
                   </div>
                     <div class="log-form">
                         <div class="menu">
-                        <label>
-                          Vendedor:
-                          <input name="idvendedor" type="text" id="idvendedor" value="" size="10" maxlength="9" placeholder="Id do Vendedor"/>
-                        </label>
-                        <br />
-                        <input type="date" title="Data" placeholder="Data" name="data" />
-                        <button type="pesquisar" class="btn">Pesquisar</button>
+                       <div class="title" onclick="gerarPDF()">Download PDF <span class="fa fa-bars"></span>
+                        <div class="arrow"></div>
+                      </div>
+                      <div class="title" onclick="gerarHTML()">Visualizar no navegador <span class="fa fa-bars"></span>
+                        <div class="arrow"></div>
+                      </div>
                     </div>
                 </div>
-       <table id="customers">
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Descrição</th>
-                    <th>Categoria</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>001</td>
-                    <td>Notebook i7 8GB Branco</td>
-                    <td>Informática</td>
-                </tr>
-                <tr>
-                    <td>002</td>
-                    <td>Caneta Esferográfica Azul</td>
-                    <td>Papelaria</td>
-                </tr>
-            </tbody>
-        </table>
        </div>
      </section>
     </div>
 </div>
 </div>
+<script src="Js/main.js"></script>
 </body>
 </html>

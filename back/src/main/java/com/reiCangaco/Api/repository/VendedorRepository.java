@@ -9,6 +9,7 @@ public interface VendedorRepository extends JpaRepository<Vendedor, Long >{
 	
 	Vendedor findById(long cd_vendedor);
 	Vendedor findByLogin(String login);
+	Vendedor findBySenha(String senha);
 	
 
 }

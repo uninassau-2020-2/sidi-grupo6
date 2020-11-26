@@ -1,30 +1,37 @@
-// window.console = window.console || function(t) {};
+function gerarPDF(formato){
+  var myInit = { method: 'GET',
+  headers: { "Content-Type": "application/json; charset=UTF-8" },
+  mode: 'cors',
+  cache: 'default' };  
 
-// if (document.location.search.match(/type=embed/gi)) {
-//     window.parent.postMessage("resize", "*");
-//   }
-
-function mostra_oculta(){
-var x = document.getElementById("divBack");
-// var btn = document.getElementById("myDIV");
-if (x.style.display === "none") {
-  x.style.display = "block";
-  // btn.style.display = "none";
-
-} else {
-  x.style.display = "none";
-  // btn.style.display = "block";
-}
+  fetch('http://localhost:8080/api/geraReport/pdf',myInit)
+  .then(function(response) {
+    if(response.status == 200){
+    return alert(response.responseText)}
+    else{
+    alert("Não foi possivel Gerar o Relatório");  
+    return ;
+    }
+ });
 }
 
-function f() {
-  document.getElementsByClassName('dropdown')[0].classList.toggle('down');
-  document.getElementsByClassName('arrow')[0].classList.toggle('gone');
-  if (document.getElementsByClassName('dropdown')[0].classList.contains('down')) {
-    setTimeout(function() {
-      document.getElementsByClassName('dropdown')[0].style.overflow = 'visible'
-    }, 500)
-  } else {
-    document.getElementsByClassName('dropdown')[0].style.overflow = 'hidden'
-  }
+  
+function gerarHTML(formato){
+
+  var myInit = { method: 'GET',
+  headers: { "Content-Type": "application/json; charset=UTF-8" },
+  mode: 'cors',
+  cache: 'default' };  
+
+  fetch('http://localhost:8080/api/geraReport/html',myInit)
+  .then(function(response) {
+    if(response.status == 200){
+    return window.location = "C:\\Users\\Roberto\\Desktop\\Report\\Extrato de Vendas.html";}
+    else{
+    alert("Não foi possivel Gerar o Relatório");  
+    return ;
+    }
+ });
 }
+
+  

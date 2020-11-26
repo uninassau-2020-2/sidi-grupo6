@@ -95,23 +95,48 @@ function setaVl(){
 
 }
 
+function RetornaDataHoraAtual(){
+  var dNow = new Date();
+  var localdate = dNow.getDate() + '-' + (dNow.getMonth()+1) + '-' + dNow.getFullYear() + "" + dNow.getHours() + ":" + dNow.getMinutes() + ":" + dNow.getSeconds();
+  return localdate;
+  } 
+
+
+
+
 function LimparTela(){
-  document.getElementById('id_produto').value=" ";
-  document.getElementById('valor_total_final').value=" ";
-  document.getElementById('nm_produto').value=" ";
-  document.getElementById('desconto').value=" ";
-  document.getElementById('vl_produto').value=" ";
-  document.getElementById('quantidade').value=" ";
+  document.getElementById('valor_total_final').value= null;
+  document.getElementById('nm_produto').value=null;
+  document.getElementById('desconto').value=null;
+  document.getElementById('vl_produto').value=null;
+  document.getElementById('quantidade').value=null;
+  document.getElementById('id_produto').value=null;
+ 
 }
 
 function inserirPedido(){
     snAtivo = 'N'
-        		
+    var dNow = new Date();
+    var localdate = dNow.getDate() + '-' + (dNow.getMonth()+1) + '-' + dNow.getFullYear() + " " + dNow.getHours() + ":" + dNow.getMinutes() + ":" + dNow.getSeconds();
+    
+
+    var checado = document.getElementById('avista');
+
+            if(checado.checked){
+              tpPagamento = 'A VISTA'
+            }
+            else{
+              tpPagamento = 'CREDITO'
+            }
+            
+        
             vltotproduto = document.getElementById('valor_total_final').value
             nmProduto = document.getElementById('nm_produto').value
             desconto = document.getElementById('desconto').value
             vlProduto = document.getElementById('vl_produto').value
             quantidade = document.getElementById('quantidade').value
+            cdVendedor = localStorage.getItem("@ReiCangaco/cd_vendedor")
+           
  			
                var myHeaders = new Headers();
 
@@ -123,7 +148,10 @@ function inserirPedido(){
                quantidade: quantidade,
                nm_produto: nmProduto,
                vl_desconto: desconto,
-               vl_total: vltotproduto
+               vl_total: vltotproduto,
+               id_vendedor: cdVendedor,
+               tp_pagamento: tpPagamento,
+               dt_pedido: localdate
                      }),
                cache: 'default' };
 
@@ -131,12 +159,7 @@ function inserirPedido(){
 			  .then(function(response) {
   			   return response.json().then(data => {
 
-  			      document.getElementById('id_produto').value=(data.id_produto);
-              document.getElementById('valor_total_final').value=(data.vl_total);
-              document.getElementById('nm_produto').value=(data.nm_produto);
-              document.getElementById('desconto').value=(data.vl_desconto);
-              document.getElementById('vl_produto').value=(data.vl_produto);
-              document.getElementById('quantidade').value=(data.quantidade);
+  		
 
   			   });
 
@@ -146,6 +169,29 @@ function inserirPedido(){
         
 
 }
+
+
+
+
+      
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
 
 
 
