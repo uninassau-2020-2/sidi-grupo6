@@ -36,8 +36,12 @@ public class VendedorController {
 	}
 	
 	@GetMapping(value="/vendedor/{cd_vendedor}/json")
-	public Vendedor ListarVendedorCD(@PathVariable(value="cd_vendedor")long cd_vendedor){
-		return vendedorrepository.findById(cd_vendedor);
+	public ResponseEntity<Vendedor> ListarVendedorCD(@PathVariable(value="cd_vendedor")long cd_vendedor){
+		Vendedor v = vendedorrepository.findById(cd_vendedor);
+		if(v !=  null) {
+		return new ResponseEntity<Vendedor>(v,HttpStatus.OK);}
+		else
+			return new ResponseEntity<Vendedor>(HttpStatus.NOT_FOUND);
 	}
 	
 	@PostMapping(value="/vendedorSave")

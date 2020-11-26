@@ -75,6 +75,7 @@ function buscaProduto(idProduto) {
 
  			   fetch('http://localhost:8080/api/produto/'+idProduto+'/json',myInit)
 			  .then(function(response) {
+          if (response.status== 200){
   			   return response.json().then(data => {
 
 	        document.getElementById('id_produto').value=(data.id_produto);
@@ -84,7 +85,9 @@ function buscaProduto(idProduto) {
             document.getElementById('tp_produto').value=(data.tp_produto);
             document.getElementById('sn_ativo').value=(data.sn_ativo);
 });
-            
+}else{
+  return alert("NOT FOUND")
+}      
             
         
 
@@ -154,6 +157,12 @@ function buscaProduto(idProduto) {
                document.getElementById('sn_ativo').value=(data.sn_ativo);
                document.getElementById('tp_produto').value=(data.tp_produto);
 
+               if(data.id_produto != null){
+                alert("CADASTRADO COM SUCESSO")
+              }else{
+                alert("ERRO NO CADASTRO")
+              }
+
   			   });
 
         });
@@ -188,7 +197,9 @@ function buscaProduto(idProduto) {
 
  			   fetch('http://localhost:8080/api/produtoUpdate',myInit)
 			  .then(function(response) {
-  			   return response.json()
+          alert("ATUALIZADO COM SUCESSO")
+           return response.json()
+           
         });
 
         };
@@ -218,21 +229,23 @@ function buscaProduto(idProduto) {
                      }),
                cache: 'default' };
 
- 			   fetch('http://localhost:8080/api/produtoDelete',myInit)
+          fetch('http://localhost:8080/api/produtoDelete',myInit)
+          alert("DELETADO COM SUCESSO")
+          LimparTela()
 			  .then(function(response) {
-  			   
+        
         });
-			  LimparTela();
+			 
 
         }; 
 
         function LimparTela(){
 
 
-			document.getElementById('id_produto').value=" ";
-            document.getElementById('cd_produto').value=" ";
-            document.getElementById('nm_produto').value=" ";
-            document.getElementById('vl_produto').value=" ";
-            document.getElementById('sn_ativo').value=" ";
-            tpProduto = document.getElementById('tp_produto').value=" ";
+			document.getElementById('id_produto').value=null;
+            document.getElementById('cd_produto').value=null;
+            document.getElementById('nm_produto').value=null;
+            document.getElementById('vl_produto').value=null;
+            document.getElementById('sn_ativo').value=null;
+            tpProduto = document.getElementById('tp_produto').value=null;
         }

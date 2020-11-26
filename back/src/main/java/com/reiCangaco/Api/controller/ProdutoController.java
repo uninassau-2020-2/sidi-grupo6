@@ -1,6 +1,8 @@
 package com.reiCangaco.Api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,8 +36,12 @@ public class ProdutoController {
 	
 	
 	@GetMapping("/produto/{id_produto}/json")
-	public Produto listarProdutoID(@PathVariable(value="id_produto") long id_produto ){
-		return produtoRepository.findById(id_produto);
+	public ResponseEntity<Produto> listarProdutoID(@PathVariable(value="id_produto") long id_produto ){
+		Produto p = produtoRepository.findById(id_produto);
+		if(p != null) {
+		return new ResponseEntity<Produto>(p,HttpStatus.OK);}
+		else
+			return new ResponseEntity<Produto>(HttpStatus.NOT_FOUND);
 	}
 	
 	@PostMapping("/produtoSave")

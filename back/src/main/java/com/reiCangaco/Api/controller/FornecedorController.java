@@ -3,6 +3,8 @@ package com.reiCangaco.Api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,8 +35,13 @@ public class FornecedorController {
 	}
 	
 	@GetMapping("/fornecedor/{cd_fornecedor}/json")
-	public Fornecedor listarfornecedorID(@PathVariable(value="cd_fornecedor") long cd_fornecedor ){
-		return fornecedorRepository.findById(cd_fornecedor);
+	public ResponseEntity<Fornecedor> listarfornecedorID(@PathVariable(value="cd_fornecedor") long cd_fornecedor ){
+		Fornecedor c = fornecedorRepository.findById(cd_fornecedor);
+		if(c != null) {
+		return new ResponseEntity<Fornecedor>(c, HttpStatus.OK);
+				}
+		else 
+			return new ResponseEntity<Fornecedor>(HttpStatus.NOT_FOUND);
 	}
 	
 	@PostMapping("/fornecedorSave")

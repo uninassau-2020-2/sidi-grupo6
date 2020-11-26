@@ -74,6 +74,7 @@ function buscaVendedoridP(idVendedor) {
 
  			   fetch('http://localhost:8080/api/vendedor/'+idVendedor+'/json',myInit)
 			  .then(function(response) {
+          if (response.status==200){
   			   return response.json().then(data => {
 
 	        document.getElementById('cd_vendedor').value=(data.cd_vendedor);
@@ -82,7 +83,9 @@ function buscaVendedoridP(idVendedor) {
             document.getElementById('senha').value="******";
             document.getElementById('sn_ativo').value=(data.sn_ativo);
 });
-            
+}else{
+  return alert("NOT FOUND")
+}         
             
         
 
@@ -149,6 +152,11 @@ function buscaVendedoridP(idVendedor) {
                document.getElementById('login').value=(data.login);
                document.getElementById('senha').value=(data.senha);
                document.getElementById('sn_ativo').value=(data.sn_ativo);
+               if(data.cd_vendedor != null){
+                alert("CADASTRADO COM SUCESSO")
+              }else{
+                alert("ERRO NO CADASTRO")
+              }
 
   			   });
 
@@ -190,6 +198,11 @@ function buscaVendedoridP(idVendedor) {
                document.getElementById('login').value=(data.login);
                document.getElementById('senha').value="**********"
                document.getElementById('sn_ativo').value=(data.sn_ativo);
+               if(data.cd_fornecedor != null){
+                alert("ALTERADO COM SUCESSO")
+              }else{
+                alert("ERRO NA ALTERAÇÃO")
+              }
 
   			   });
 
@@ -231,6 +244,7 @@ function buscaVendedoridP(idVendedor) {
                document.getElementById('login').value=(data.login);
                document.getElementById('senha').value="*******"
                document.getElementById('sn_ativo').value=(data.sn_ativo);
+               alert("DELETADO COM SUCESSO")
 
   			   });
 
@@ -242,10 +256,10 @@ function buscaVendedoridP(idVendedor) {
         function LimparTela(){
 
 
-			document.getElementById('cd_vendedor').value=" ";
-            document.getElementById('nm_vendedor').value=" ";
-            document.getElementById('login').value=" ";
-            document.getElementById('sn_ativo').value=" ";
-            document.getElementById('senha').value=" ";
+			document.getElementById('cd_vendedor').value=null;
+            document.getElementById('nm_vendedor').value=null;
+            document.getElementById('login').value=null;
+            document.getElementById('sn_ativo').value=null;
+            document.getElementById('senha').value=null;
             
         }

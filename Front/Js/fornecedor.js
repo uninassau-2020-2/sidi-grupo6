@@ -77,8 +77,8 @@ function buscaFornecedoridP(idFornecedor) {
 
  			   fetch('http://localhost:8080/api/fornecedor/'+idFornecedor+'/json',myInit)
 			  .then(function(response) {
+          if (response.status == 200){
   			   return response.json().then(data => {
-
 	        document.getElementById('cd_fornecedor').value=(data.cd_fornecedor);
             document.getElementById('cnpj_cpf').value=(data.cnpj_cpf);
             document.getElementById('nm_fantasia').value=(data.nome_fantasia);
@@ -88,6 +88,9 @@ function buscaFornecedoridP(idFornecedor) {
             document.getElementById('contato').value=(data.contato);
             document.getElementById('sn_ativo').value=(data.sn_ativo);
 });
+          }else{
+            return alert("NOT FOUND")
+          }
             
             
         
@@ -156,6 +159,7 @@ function buscaFornecedoridP(idFornecedor) {
 
  			   fetch('http://localhost:8080/api/fornecedorSave',myInit)
 			  .then(function(response) {
+
   			   return response.json().then(data => {
 
   			   document.getElementById('cd_fornecedor').value=(data.cd_fornecedor);
@@ -166,6 +170,11 @@ function buscaFornecedoridP(idFornecedor) {
                document.getElementById('estado').value=(data.estado);
                document.getElementById('contato').value=(data.contato);
                document.getElementById('sn_ativo').value=(data.sn_ativo);
+               if(data.cd_fornecedor != null){
+                 alert("CADASTRADO COM SUCESSO")
+               }else{
+                 alert("ERRO NO CADASTRO")
+               }
 
   			   });
 
@@ -214,6 +223,11 @@ function buscaFornecedoridP(idFornecedor) {
                document.getElementById('estado').value=(data.estado);
                document.getElementById('contato').value=(data.contato);
                document.getElementById('sn_ativo').value=(data.sn_ativo);
+               if(data.cd_fornecedor != null){
+                alert("ALTERADO COM SUCESSO")
+              }else{
+                alert("ERRO NO CADASTRO")
+              }
 
   			   });
 
@@ -263,6 +277,9 @@ function buscaFornecedoridP(idFornecedor) {
              document.getElementById('estado').value=(data.estado);
              document.getElementById('contato').value=(data.contato);
              document.getElementById('sn_ativo').value=(data.sn_ativo);
+          
+              alert("DELETADO COM SUCESSO")
+           
 
          });
 
@@ -274,13 +291,13 @@ function buscaFornecedoridP(idFornecedor) {
         function LimparTela(){
 
 
-			document.getElementById('cd_fornecedor').value=" ";
-            document.getElementById('cnpj_cpf').value=" ";
-            document.getElementById('nm_fantasia').value=" ";
-            document.getElementById('email').value=" ";
-            document.getElementById('sn_ativo').value=" ";
-            document.getElementById('email').value=" ";
-            document.getElementById('estado').value=" ";
-            document.getElementById('cep').value=" ";
-            document.getElementById('contato').value=" ";
+			document.getElementById('cd_fornecedor').value=null;
+            document.getElementById('cnpj_cpf').value=null;
+            document.getElementById('nm_fantasia').value=null;
+            document.getElementById('email').value=null;
+            document.getElementById('sn_ativo').value=null;
+            document.getElementById('email').value=null;
+            document.getElementById('estado').value=null;
+            document.getElementById('cep').value=null;
+            document.getElementById('contato').value=null;
         }
